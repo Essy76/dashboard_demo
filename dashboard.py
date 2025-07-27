@@ -1,10 +1,3 @@
-import sys
-
-# 🧯 Safely override streamlit version lookup if packaging fails
-if getattr(sys, 'frozen', False):
-    import importlib.metadata
-    importlib.metadata.version = lambda package: "patched"
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -21,16 +14,12 @@ if uploaded_file is not None:
     df = pd.read_excel(uploaded_file, engine="openpyxl")
     source = "Uploaded file"
 else:
-    # Handle both development and PyInstaller paths
-    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
-    default_filename = "dwn_aml_29-May-2024.xlsx"
-    default_path = os.path.join(base_path, default_filename)
-
+    default_path = "dwn_aml_29-May-2024.xlsx"
     if os.path.exists(default_path):
         df = pd.read_excel(default_path, engine="openpyxl")
-        source = default_filename
+        source = "Default file"
     else:
-        st.error("No file uploaded, and default file is missing.")
+        st.error("No file uploaded, the default file is missing.")
         st.stop()
 
 st.caption(f"📄 Using data from: **{source}**")
