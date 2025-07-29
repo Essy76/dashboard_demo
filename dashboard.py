@@ -85,7 +85,6 @@ if check_password():
         y='Meter Reader',
         orientation='h',
         text='Job Count',
-        title='Total Jobs by Meter Reader',
         labels={'Job Count': 'Number of Jobs', 'Meter Reader': 'Reader'}
     )
     fig_all_pct.update_traces(marker_color='steelblue', textposition='outside')
