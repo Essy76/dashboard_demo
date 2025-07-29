@@ -23,7 +23,7 @@ def check_password():
 if check_password():
     st.write("🎉 Welcome to the dashboard!")
     
-    st.set_page_config("📊 Meter Reader Dashboard", layout="wide")
+    st.set_page_config("📊 Special Reader Dashboard", layout="wide")
     st.title("📊 Meter Reader Dashboard")
 
     # === Upload Box (optional) ===
@@ -54,9 +54,9 @@ if check_password():
     meter_readers = df['Meter_Reader'].dropna().unique()
     col1, col2, col3 = st.columns([1, 2, 7])  # Total is 10; col2 is ~20%
     with col2:
-        st.markdown("### 👤 Meter Reader")  # Label above dropdown
+        st.markdown("### 👤 Special Reader")  # Label above dropdown
         selected_reader = st.selectbox(
-        "Meter Reader",  # Give it a real label
+        "Special Reader",  # Give it a real label
         sorted(meter_readers),
         label_visibility="collapsed"  # This hides the label but keeps it accessible
         )
@@ -85,7 +85,7 @@ if check_password():
         y='Meter Reader',
         orientation='h',
         text='Job Count',
-        title='📊 Total Jobs by Meter Reader',
+        title='Total Jobs by Meter Reader',
         labels={'Job Count': 'Number of Jobs', 'Meter Reader': 'Reader'}
     )
     fig_all_pct.update_traces(marker_color='steelblue', textposition='outside')
