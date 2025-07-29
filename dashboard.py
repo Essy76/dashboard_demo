@@ -24,7 +24,7 @@ if check_password():
     st.write("🎉 Welcome to the dashboard!")
     
     st.set_page_config("📊 Special Reader Dashboard", layout="wide")
-    st.title("📊 Meter Reader Dashboard")
+    st.title("📊 Special Reader Dashboard")
 
     # === Upload Box (optional) ===
     uploaded_file = st.file_uploader("Upload a new .xlsx file (optional)", type=["xlsx"])
